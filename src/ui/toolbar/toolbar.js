@@ -46,6 +46,16 @@ define( function ( require ) {
                     closeToolbar: this.closeToolbar
                 } );
 
+                this.kfEditor.registerService( "ui.toolbar.append", this, {
+                    appendElement: function (elementList) {
+                        if (!kity.Utils.isArray(elementList)) {
+                            elementList = [elementList]
+                        };
+
+                        this.createToolbarElements(elementList);
+
+                    }
+                } );
             },
 
             initEvent: function () {
@@ -134,18 +144,20 @@ define( function ( require ) {
 
             initToolbarElements: function () {
 
+                this.createToolbarElements(this.elementList);
+
+            },
+
+            createToolbarElements: function (elementList) {
                 var elements = this.elements,
                     doc = this.uiComponent.toolbarContainer.ownerDocument,
                     _self = this;
-
-                kity.Utils.each( this.elementList, function ( eleInfo, i ) {
-
-                    var ele = createElement( eleInfo.type, doc, eleInfo.options );
-                    elements.push( ele );
-                    _self.appendElement( ele );
-
-                } );
-
+                
+                kity.Utils.each(elementList, function (eleInfo, i) {
+                    var ele = createElement(eleInfo.type, doc, eleInfo.options);
+                    elements.push(ele);
+                    _self.appendElement(ele);
+                })
             },
 
             appendElement: function ( uiElement ) {

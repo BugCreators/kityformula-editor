@@ -125,7 +125,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-module-dependence');
 
     // task list.
-    grunt.registerTask( 'default', [ 'jshint' ] );
-    grunt.registerTask( 'build', [ 'jshint', 'dependence:replace', 'concat:full', 'uglify:minimize', 'clean' ] );
-
+    grunt.registerTask( 'default', [ 'dependence:replace', 'concat:full', 'uglify:minimize', 'clean' ] );
 };

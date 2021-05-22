@@ -9,6 +9,10 @@ define( function ( require ) {
         CHAR_POSITION = require( "ui/char-position.data" ),
         OTHER_POSITION = require( "ui/other-position.data" ),
         kity = require( "kity" );
+    var isPro = false, // true：开发环境 false：生产环境 打包时修改
+        productionPath = isPro? "kityformula/" : "",
+        btnPath = productionPath + "assets/images/toolbar/btn.png",
+        charPath = productionPath + "assets/images/toolbar/char.png"
 
     var config = [ {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
@@ -17,7 +21,7 @@ define( function ( require ) {
                 label: '预设<br/>',
                 className: 'yushe-btn',
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 0,
                     y: 0
                 },
@@ -89,7 +93,7 @@ define( function ( require ) {
             button: {
                 label: "分数<br/>",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 45,
                     y: 0
                 }
@@ -138,7 +142,7 @@ define( function ( require ) {
             button: {
                 label: "上下标<br/>",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 82,
                     y: 0
                 }
@@ -191,7 +195,7 @@ define( function ( require ) {
             button: {
                 label: "根式<br/>",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 119,
                     y: 0
                 }
@@ -240,7 +244,7 @@ define( function ( require ) {
             button: {
                 label: "积分<br/>",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 156,
                     y: 0
                 }
@@ -286,7 +290,7 @@ define( function ( require ) {
             button: {
                 label: "大型<br/>运算符",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 193,
                     y: 0
                 }
@@ -320,7 +324,7 @@ define( function ( require ) {
             button: {
                 label: "括号<br/>",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 230,
                     y: 0
                 }
@@ -358,7 +362,7 @@ define( function ( require ) {
             button: {
                 label: "函数<br/>",
                 icon: {
-                    src: "assets/images/toolbar/btn.png",
+                    src: btnPath,
                     x: 267,
                     y: 0
                 }
@@ -419,7 +423,7 @@ define( function ( require ) {
     ( function () {
 
         var tmp = [],
-            otherImageSrc = "assets/images/toolbar/other.png",
+            otherImageSrc = productionPath + "assets/images/toolbar/other.png"
             currentConf = [];
 
         kity.Utils.each( config, function ( conf ) {
@@ -479,7 +483,7 @@ define( function ( require ) {
 
         configList.push( {
             title: "基础数学",
-            content: getIconContents( list, "assets/images/toolbar/char.png" )
+            content: getIconContents( list, charPath )
         } );
 
     } )();
@@ -502,19 +506,19 @@ define( function ( require ) {
         // 小写处理
         greekConfigList.push( {
             title: greekList[ 0 ].title,
-            content: getIconContents( greekList[ 0 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( greekList[ 0 ].values, charPath )
         } );
 
         // 大写处理
         greekConfigList.push( {
             title: greekList[ 1 ].title,
-            content: getIconContents( greekList[ 1 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( greekList[ 1 ].values, charPath )
         } );
 
         // 变体处理
         greekConfigList.push( {
             title: greekList[ 2 ].title,
-            content: getIconContents( greekList[ 2 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( greekList[ 2 ].values, charPath )
         } );
 
     } )();
@@ -537,7 +541,7 @@ define( function ( require ) {
 
         greekConfigList.push( {
             title: greekList[ 0 ].title,
-            content: getIconContents( greekList[ 0 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( greekList[ 0 ].values, charPath )
         } );
 
     } )();
@@ -554,7 +558,7 @@ define( function ( require ) {
 
         configList.push( {
             title: "字母类符号",
-            content: getIconContents( list, "assets/images/toolbar/char.png" )
+            content: getIconContents( list, charPath )
         } );
 
     } )();
@@ -582,7 +586,7 @@ define( function ( require ) {
 
         configList.push( {
             title: "箭头",
-            content: getIconContents( list, "assets/images/toolbar/char.png" )
+            content: getIconContents( list, charPath )
         } );
 
     } )();
@@ -651,22 +655,22 @@ define( function ( require ) {
         // 手写体
         configList.push( {
             title: list[ 0 ].title,
-            content: getIconContents( list[ 0 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( list[ 0 ].values, charPath )
         } );
 
         configList.push( {
             title: list[ 1 ].title,
-            content: getIconContents( list[ 1 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( list[ 1 ].values, charPath )
         } );
 
         configList.push( {
             title: list[ 2 ].title,
-            content: getIconContents( list[ 2 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( list[ 2 ].values, charPath )
         } );
 
         configList.push( {
             title: list[ 3 ].title,
-            content: getIconContents( list[ 3 ].values, "assets/images/toolbar/char.png" )
+            content: getIconContents( list[ 3 ].values, charPath )
         } );
 
     } )();

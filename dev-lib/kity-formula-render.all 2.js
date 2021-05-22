@@ -4991,7 +4991,7 @@ _p[36] = {
                 offsets = [];
                 kity.Utils.each(operands, function(operand) {
                     var box = operand.getFixRenderBox(), offsetY = operand.getOffset();
-                    // box.height -= offsetY.top + offsetY.bottom;
+                    box.height -= offsetY.top + offsetY.bottom;
                     cached.push(box);
                     offsets.push(offsetY);
                     maxOffsetTop = Math.max(offsetY.top, maxOffsetTop);
@@ -5000,8 +5000,7 @@ _p[36] = {
                 });
                 kity.Utils.each(operands, function(operand, index) {
                     var box = cached[index];
-                    // operand.translate(offsetX - box.x, (maxHeight - (box.y + box.height)) / 2 + maxOffsetBottom - offsets[index].bottom);
-                    operand.translate(offsetX - box.x, (maxHeight - (box.y + box.height)) / 2);
+                    operand.translate(offsetX - box.x, (maxHeight - (box.y + box.height)) / 2 + maxOffsetBottom - offsets[index].bottom);
                     offsetX += box.width;
                 });
                 this.parentExpression.setOffset(maxOffsetTop, maxOffsetBottom);

@@ -245,7 +245,7 @@ define( function ( require ) {
     // 判断给定的树是否是一个虚拟组
     function isVirtualGroup ( tree ) {
 
-        return !!VGROUP_LIST[ tree.name ];
+        return !!VGROUP_LIST[ tree.name ] || tree.isVirtualGroup;
 
     }
 
