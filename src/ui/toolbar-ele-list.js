@@ -3,6 +3,7 @@
  */
 
 define( function ( require ) {
+    var i18n = require("i18n");
 
     var UI_ELE_TYPE = require( "ui/ui-impl/def/ele-type" ),
         BOX_TYPE = require( "ui/ui-impl/def/box-type" ),
@@ -18,8 +19,8 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: '预设<br/>',
-                className: 'yushe-btn',
+                label:  i18n.localize("预设"),
+                className: "yushe-btn",
                 icon: {
                     src: btnPath,
                     x: 0,
@@ -32,21 +33,21 @@ define( function ( require ) {
             box: {
                 width: 367,
                 group: [ {
-                    title: "预设公式",
+                    title: i18n.localize("预设公式"),
                     items: [ {
-                        title: "预设公式",
+                        title: i18n.localize("预设公式"),
                         content: [ {
-                            label: "二次公式",
+                            label: i18n.localize("二次公式"),
                             item: {
                                 val: "x=\\frac {-b\\pm\\sqrt {b^2-4ac}}{2a}"
                             }
                         }, {
-                            label: "二项式定理",
+                            label: i18n.localize("二项式定理"),
                             item: {
                                 val: "{\\left(x+a\\right)}^2=\\sum^n_{k=0}{\\left(^n_k\\right)x^ka^{n-k}}"
                             }
                         }, {
-                            label: "勾股定理",
+                            label: i18n.localize("勾股定理"),
                             item: {
                                 val: "a^2+b^2=c^2"
                             }
@@ -65,22 +66,22 @@ define( function ( require ) {
                 width: 527,
                 type: BOX_TYPE.OVERLAP,
                 group: [ {
-                    title: "基础数学",
+                    title: i18n.localize("基础数学"),
                     items: []
                 }, {
-                    title: "希腊字母",
+                    title: i18n.localize("希腊字母"),
                     items: []
                 }, {
-                    title: "求反关系运算符",
+                    title: i18n.localize("求反关系运算符"),
                     items: []
                 }, {
-                    title: "字母类符号",
+                    title: i18n.localize("字母类符号"),
                     items: []
                 }, {
-                    title: "箭头",
+                    title: i18n.localize("箭头"),
                     items: []
                 }, {
-                    title: "手写体",
+                    title: i18n.localize("手写体"),
                     items: []
                 } ]
             }
@@ -91,7 +92,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "分数<br/>",
+                label: i18n.localize("分数"),
                 icon: {
                     src: btnPath,
                     x: 45,
@@ -101,9 +102,9 @@ define( function ( require ) {
             box: {
                 width: 332,
                 group: [ {
-                    title: "分数",
+                    title: i18n.localize("分数"),
                     items: [ {
-                        title: "分数",
+                        title: i18n.localize("分数"),
                         content: [ {
                             item: {
                                 val: "\\frac \\placeholder\\placeholder"
@@ -114,7 +115,7 @@ define( function ( require ) {
                             }
                         } ]
                     }, {
-                        title: "常用分数",
+                        title: i18n.localize("常用分数"),
                         content: [ {
                             item: {
                                 val: "\\frac {dy}{dx}"
@@ -140,7 +141,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "上下标<br/>",
+                label: i18n.localize("上下标"),
                 icon: {
                     src: btnPath,
                     x: 82,
@@ -150,9 +151,9 @@ define( function ( require ) {
             box: {
                 width: 332,
                 group: [ {
-                    title: "上标和下标",
+                    title: i18n.localize("上标和下标"),
                     items: [ {
-                        title: "上标和下标",
+                        title: i18n.localize("上标和下标"),
                         content: [ {
                             item: {
                                 val: "\\placeholder^\\placeholder"
@@ -171,7 +172,7 @@ define( function ( require ) {
                             }
                         } ]
                     }, {
-                        title: "常用的上标和下标",
+                        title: i18n.localize("常用的上标和下标"),
                         content: [ {
                             item: {
                                 val: "e^{-i\\omega t}"
@@ -193,7 +194,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "根式<br/>",
+                label: i18n.localize("根式"),
                 icon: {
                     src: btnPath,
                     x: 119,
@@ -203,9 +204,9 @@ define( function ( require ) {
             box: {
                 width: 342,
                 group: [ {
-                    title: "根式",
+                    title: i18n.localize("根式"),
                     items: [ {
-                        title: "根式",
+                        title: i18n.localize("根式"),
                         content: [ {
                             item: {
                                 val: "\\sqrt \\placeholder"
@@ -224,7 +225,7 @@ define( function ( require ) {
                             }
                         } ]
                     }, {
-                        title: "常用根式",
+                        title: i18n.localize("常用根式"),
                         content: [ {
                             item: {
                                 val: "\\frac {-b\\pm\\sqrt{b^2-4ac}}{2a}"
@@ -242,7 +243,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "积分<br/>",
+                label: i18n.localize("积分"),
                 icon: {
                     src: btnPath,
                     x: 156,
@@ -252,9 +253,9 @@ define( function ( require ) {
             box: {
                 width: 332,
                 group: [ {
-                    title: "积分",
+                    title: i18n.localize("积分"),
                     items: [ {
-                        title: "积分",
+                        title: i18n.localize("积分"),
                         content: [ {
                             item: {
                                 val: "\\int \\placeholder"
@@ -288,7 +289,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "大型<br/>运算符",
+                label: i18n.localize("大型运算符"),
                 icon: {
                     src: btnPath,
                     x: 193,
@@ -298,9 +299,9 @@ define( function ( require ) {
             box: {
                 width: 332,
                 group: [ {
-                    title: "求和",
+                    title: i18n.localize("求和"),
                     items: [ {
-                        title: "求和",
+                        title: i18n.localize("求和"),
                         content: [ {
                             item: {
                                 val: "\\sum\\placeholder"
@@ -322,7 +323,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "括号<br/>",
+                label: i18n.localize("括号"),
                 icon: {
                     src: btnPath,
                     x: 230,
@@ -332,9 +333,9 @@ define( function ( require ) {
             box: {
                 width: 332,
                 group: [ {
-                    title: "方括号",
+                    title: i18n.localize("方括号"),
                     items: [ {
-                        title: "方括号",
+                        title: i18n.localize("方括号"),
                         content: [ {
                             item: {
                                 val: "\\left(\\placeholder\\right)"
@@ -360,7 +361,7 @@ define( function ( require ) {
         type: UI_ELE_TYPE.DRAPDOWN_BOX,
         options: {
             button: {
-                label: "函数<br/>",
+                label: i18n.localize("函数"),
                 icon: {
                     src: btnPath,
                     x: 267,
@@ -370,9 +371,9 @@ define( function ( require ) {
             box: {
                 width: 340,
                 group: [ {
-                    title: "函数",
+                    title: i18n.localize("函数"),
                     items: [ {
-                        title: "三角函数",
+                        title: i18n.localize("三角函数"),
                         content: [ {
                             item: {
                                 val: "\\sin\\placeholder"
@@ -399,7 +400,7 @@ define( function ( require ) {
                             }
                         } ]
                     }, {
-                        title: "常用函数",
+                        title: i18n.localize("常用函数"),
                         content: [ {
                             item: {
                                 val: "\\sin\\theta"
@@ -482,7 +483,7 @@ define( function ( require ) {
             configList = config[ 2 ].options.box.group[ 0 ].items;
 
         configList.push( {
-            title: "基础数学",
+            title: i18n.localize("基础数学"),
             content: getIconContents( list, charPath )
         } );
 
@@ -492,13 +493,13 @@ define( function ( require ) {
     ( function () {
 
         var greekList = [ {
-                title: "小写",
+                title: i18n.localize("小写"),
                 values: [ "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega" ]
             }, {
-                title: "大写",
+                title: i18n.localize("大写"),
                 values: [ "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega" ]
             }, {
-                title: "变体",
+                title: i18n.localize("变体"),
                 values: [ "digamma", "varepsilon", "varkappa", "varphi", "varpi", "varrho", "varsigma", "vartheta" ]
             } ],
             greekConfigList = config[ 2 ].options.box.group[ 1 ].items;
@@ -527,7 +528,7 @@ define( function ( require ) {
     ( function () {
 
         var greekList = [ {
-                title: "求反关系运算符",
+                title: i18n.localize("求反关系运算符"),
                 values: [
                     "neq", "nless", "ngtr", "nleq", "ngeq", "nsim", "lneqq",
                     "gneqq", "nprec", "nsucc", "notin", "nsubseteq", "nsupseteq",
@@ -557,7 +558,7 @@ define( function ( require ) {
             configList = config[ 2 ].options.box.group[ 3 ].items;
 
         configList.push( {
-            title: "字母类符号",
+            title: i18n.localize("字母类符号"),
             content: getIconContents( list, charPath )
         } );
 
@@ -585,7 +586,7 @@ define( function ( require ) {
             configList = config[ 2 ].options.box.group[ 4 ].items;
 
         configList.push( {
-            title: "箭头",
+            title: i18n.localize("箭头"),
             content: getIconContents( list, charPath )
         } );
 
@@ -595,13 +596,13 @@ define( function ( require ) {
     ( function () {
 
         var list = [ {
-                title: "手写体",
+                title: i18n.localize("手写体"),
                 values: [
                     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                     "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
                     "Y", "Z" ]
             }, {
-                title: "花体",
+                title: i18n.localize("花体"),
                 values: [
                     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                     "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
@@ -610,14 +611,14 @@ define( function ( require ) {
                     "w", "x", "y", "z"
                 ]
             }, {
-                title: "双线",
+                title: i18n.localize("双线"),
                 values: [
                     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                     "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
                     "Y", "Z"
                 ]
             }, {
-                title: "罗马",
+                title: i18n.localize("罗马"),
                 values: [
                     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                     "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",

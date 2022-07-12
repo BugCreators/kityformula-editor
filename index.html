@@ -1,55 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>公式编辑器</title>
-    <meta charset="UTF-8">
-    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
     <script src="dev-lib/jquery-1.11.0.min.js"></script>
+    <script src="dev-lib/jquery.i18n.min.js"></script>
+    <script src="dev-lib/jquery.i18n.messagestore.js"></script>
     <script src="dev-lib/kitygraph.all.js"></script>
     <script src="dev-lib/kity-formula-render.all.js"></script>
     <script src="dev-lib/kity-formula-parser.all.min.js"></script>
     <script src="dev-lib/dev-define.js"></script>
     <script>
-        inc.config({
-            base: './src'
-        });
+      inc.config({
+        base: './src',
+      });
     </script>
     <script src="dev-lib/exports.js"></script>
     <script src="dev-lib/start.js"></script>
-    <script src="dev-lib/dev-start.js"></script>
-    <!--<script src="dist/kityformula-editor.all.min.js"></script>-->
+    <!-- <script src="dev-lib/dev-start.js"></script> -->
     <script>
-        jQuery( function ($) {
+      var params = getParameters();
+      var locale = params.locale || 'zh_cn';
 
-            var factory = kf.EditorFactory.create( $( "#kfEditorContainer" )[ 0 ], {
-                render: {
-                    fontsize: 40
-                },
-                resource: {
-                    path: "resource/"
-                }
-            } );
+      var i18n = $.i18n();
+      i18n.locale = locale;
+      i18n.load('i18n/' + locale + '.json', i18n.locale).done(function () {
+        $('[data-i18n]').i18n();
 
-            factory.ready( function ( KFEditor ) {
+        loadJS('dev-lib/dev-start.js', function () {
+          var factory = kf.EditorFactory.create($('#kfEditorContainer')[0], {
+            render: {
+              fontsize: 40,
+            },
+            resource: {
+              path: 'resource/',
+            },
+          });
 
-                // this指向KFEditor
+          factory.ready(function (KFEditor) {
+            // this指向KFEditor
 
-                this.execCommand( "render", "\\placeholder" );
-                this.execCommand( "focus" );
+            this.execCommand('render', '\\placeholder');
+            this.execCommand('focus');
 
-                window.kfe = this;
+            window.kfe = this;
+          });
+        });
+      });
 
-            } );
+      function getParameters() {
+        var search = window.location.href.split('?')[1];
+        var json = {};
 
-        } );
+        if (search) {
+          var arr = search.split('&');
+          for (let i = 0; i < arr.length; i++) {
+            var data = arr[i].split('=');
+            json[data[0]] = data[1];
+          }
+        }
+
+        if (json.message) {
+          json.message = decodeURIComponent(json.message);
+        }
+
+        return json;
+      }
+
+      function loadJS(url, callback) {
+        var script = document.createElement('script'),
+          fn = callback || function () {};
+
+        script.type = 'text/javascript';
+
+        //IE
+        if (script.readyState) {
+          script.onreadystatechange = function () {
+            if (script.readyState == 'loaded' || script.readyState == 'complete') {
+              script.onreadystatechange = null;
+              fn();
+            }
+          };
+        } else {
+          //other
+          script.onload = function () {
+            fn();
+          };
+        }
+        script.src = url;
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
     </script>
     <script src="./config.js"></script>
-    <link rel="stylesheet" href="assets/styles/page.css">
-    <link rel="stylesheet" href="assets/styles/base.css">
-    <link rel="stylesheet" href="assets/styles/ui.css">
-    <link rel="stylesheet" href="assets/styles/scrollbar.css">
-</head>
-<body>
-    <div id="kfEditorContainer" class="kf-editor" style="width: 820px; height: 502px; position: absolute; top: 20px; left: 50px;"></div>
-</body>
+    <link rel="stylesheet" href="assets/styles/page.css" />
+    <link rel="stylesheet" href="assets/styles/base.css" />
+    <link rel="stylesheet" href="assets/styles/ui.css" />
+    <link rel="stylesheet" href="assets/styles/scrollbar.css" />
+    <style>
+      .tips {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="kfEditorContainer"
+      class="kf-editor"
+      style="width: 842px; height: 502px; position: absolute; top: 20px; left: 50px"
+    >
+      <div id="tips" class="tips">
+        <div id="loading" style="text-align: center; padding-top: 100px">
+          <img src="./assets/images/loading.gif" alt="loading" />
+          <p data-i18n="正在加载，请耐心等待"></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

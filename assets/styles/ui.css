@@ -1,5 +1,6 @@
 /* 工具栏 */
 .kf-editor-toolbar {
+    box-sizing: border-box;
     width: 100%;
     padding: 1px 10px;
     position: relative;
@@ -17,7 +18,8 @@
 
 /* 按钮 */
 .kf-editor-ui-button {
-    padding: 8px 6px;
+    width: 50px;
+    padding: 8px 0;
     height: 79px;
     font-size: 12px;
     display: inline-block;
@@ -48,10 +50,17 @@
 
 .kf-editor-ui-button-label {
     color: #666;
-    text-align: center;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 12px;
     line-height: 20px;
+}
+
+.kf-editor-ui-button-span {
+    display: block;
+    text-align: center;
+    width: 3em;
 }
 
 .kf-editor-ui-overlap-button .kf-editor-ui-button-label {
@@ -67,8 +76,8 @@
     width: 0;
     height: 0;
     display: inline-block;
-    margin: 8px auto;
-    vertical-align: top;
+    /* margin: 8px auto; */
+    vertical-align: baseline;
 }
 
 .kf-editor-ui-button-mount-point {
@@ -372,7 +381,7 @@
 
 .kf-editor-ui-list-item {
     line-height: 24px;
-    padding: 2px 6px;
+    padding: 2px 16px 2px 6px;
     border: 1px solid transparent;
     border-width: 1px 0;
 }

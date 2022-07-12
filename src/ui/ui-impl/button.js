@@ -208,11 +208,15 @@ define( function ( require ) {
 
             },
 
-            createLabel: function () {
+          createLabel: function () {
+                var leftNode = $$.ele(this.doc, 'span', {
+                    className: PREFIX + "button-span",
+                    content: this.options.label
+                })
 
                 var labelNode = $$.ele( this.doc, "div", {
                     className: PREFIX + "button-label",
-                    content: this.options.label
+                    content: leftNode.outerHTML
                 } );
 
 

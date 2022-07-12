@@ -1,6 +1,7 @@
 (function(){
     var kity = window.kity,
     kf = window.kf,
+    i18n = window.i18n,
     ZOOM = .66;
     /**
      * 向量操作符
@@ -95,7 +96,7 @@
             type: 1,
             options: {
                 button: {
-                    label: "向量<br/>",
+                    label: i18n.localize("向量"),
                     icon: {
                         src: "assets/images/toolbar/btn.png",
                         x: 388,
@@ -105,9 +106,9 @@
                 box: {
                     width: 332,
                     group: [ {
-                        title: "向量",
+                        title: i18n.localize("向量"),
                         items: [ {
-                            title: "向量",
+                            title: i18n.localize("向量"),
                             content: [ {
                                 item: {
                                     val: "\\vector \\placeholder",
