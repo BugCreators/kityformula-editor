@@ -22,6 +22,7 @@ define( function ( require, exports, module ) {
             this.parentComponent = parentComponent;
             this.kfEditor = kfEditor;
 
+            this.currentChar = "";
             this.inputBox = this.createInputBox();
 
             this.initServices();
@@ -174,6 +175,7 @@ define( function ( require, exports, module ) {
                     e.preventDefault();
                 }
 
+                _self.currentChar = e.char;
             } );
 
             // 用户输入
@@ -302,8 +304,17 @@ define( function ( require, exports, module ) {
         },
 
         processingInput: function () {
+            var value = this.inputBox.value;
+            var flag = false;
+
+            if (this.currentChar && !value.replace("", "").trim()) {
+              value = this.currentChar + " ";
+              this.inputBox.value = value;
+              flag = true;
+            }
 
             this.restruct( this.inputBox.value );
+            flag && this.updateInput();
             this.kfEditor.requestService( "ui.update.canvas.view" );
 
         },
